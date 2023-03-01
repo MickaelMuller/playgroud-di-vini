@@ -14,10 +14,15 @@ const fetchTest = async () => {
   return response.json()
 }
 
+const fetchChuck = async () => {
+  const response = await fetch("https://api.chucknorris.io/jokes/random")
+
+  return response.json()
+}
+
 export default function Home() {
   const { data } = useQuery({ queryKey: ["test"], queryFn: fetchTest })
-
-  console.log("aa", data)
+  const { data: chuck } = useQuery({ queryKey: ["chuck"], queryFn: fetchChuck })
 
   return (
     <>
@@ -31,6 +36,7 @@ export default function Home() {
         <div className={styles.description}>
           {JSON.stringify(data, null, 2)}
         </div>
+        <div className={styles.description}>{chuck?.value}</div>
 
         <div className={styles.center}>
           <Image
