@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 const fetchTest = async () => {
   const response = await fetch(
-    "http://dotnet-test-namespace-cellartusers-3926.6f84d225628841ab9343.westeurope.aksapp.io/WeatherForecast"
+    "https://tototata.azurewebsites.net/weatherforecast"
   )
 
   return response.json()
